@@ -13,12 +13,12 @@ public class Bank {
     }
 
     public void newBranch(String name) {
-        System.out.println("Adding branch " + name + " at " + this.name +  " bank ");
-        branches.add(new Branch(name));
+        System.out.println("Adding branch " + name + " at " + this.name + " bank ");
+        branches.add(new Branch(name,this.name));
     }
 
-    public Branch searchBranch (String name) {
-        for (Branch i:branches)
+    public Branch searchBranch(String name) {
+        for (Branch i : branches)
             if (i.getName().equals(name))
                 return i;
         return null;
