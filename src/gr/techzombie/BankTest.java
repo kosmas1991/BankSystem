@@ -10,14 +10,14 @@ public class BankTest {
 
         Master master = new Master("master");
         boolean stop = false;
-        int choice=0;
+        int choice = 0;
         printInfo();
         while (!stop) {
             boolean midas = false;
             while (!midas) {
                 try {
                     choice = Integer.parseInt(input.nextLine());
-                    midas=true;
+                    midas = true;
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
                     System.out.println("Give a valid option");
@@ -45,8 +45,10 @@ public class BankTest {
                         System.out.println("Available banks:");
                         test = master.getBanksNames();
                         counter = 1;
-                        for (String i : test)
+                        for (String i : test) {
                             System.out.println(counter + ". " + i);
+                            counter++;
+                        }
                         printInfo();
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -57,6 +59,13 @@ public class BankTest {
                     String branchName;
                     try {
                         System.out.println("Give Bank's name:");
+                        System.out.println("Available banks:");
+                        test = master.getBanksNames();
+                        counter = 1;
+                        for (String i : test) {
+                            System.out.println(counter + ". " + i);
+                            counter++;
+                        }
                         bankName = input.nextLine();
                         System.out.println("Give Branch's name:");
                         branchName = input.nextLine();
@@ -70,12 +79,22 @@ public class BankTest {
                 case 4:
                     try {
                         System.out.println("Give Bank's name:");
+                        System.out.println("Available banks:");
+                        test = master.getBanksNames();
+                        counter = 1;
+                        for (String i : test) {
+                            System.out.println(counter + ". " + i);
+                            counter++;
+                        }
                         bankName = input.nextLine();
                         //test=null;
+                        System.out.println("Available branches:");
                         test = master.searchBank(bankName).getBranchesNames();
                         counter = 1;
-                        for (String i : test)
+                        for (String i : test) {
                             System.out.println(counter + ". " + i);
+                            counter++;
+                        }
                         printInfo();
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -85,8 +104,22 @@ public class BankTest {
                 case 5:
                     try {
                         System.out.println("Give bank's name:");
+                        System.out.println("Available banks:");
+                        test = master.getBanksNames();
+                        counter = 1;
+                        for (String i : test) {
+                            System.out.println(counter + ". " + i);
+                            counter++;
+                        }
                         bankName = input.nextLine();
                         System.out.println("Give Branch's name:");
+                        System.out.println("Available branches:");
+                        test = master.searchBank(bankName).getBranchesNames();
+                        counter = 1;
+                        for (String i : test) {
+                            System.out.println(counter + ". " + i);
+                            counter++;
+                        }
                         branchName = input.nextLine();
                         System.out.println("Give Customer's name:");
                         String customer = input.nextLine();
@@ -100,13 +133,30 @@ public class BankTest {
                 case 6:
                     try {
                         System.out.println("Give Bank's name:");
+                        System.out.println("Available banks:");
+                        test = master.getBanksNames();
+                        counter = 1;
+                        for (String i : test) {
+                            System.out.println(counter + ". " + i);
+                            counter++;
+                        }
                         bankName = input.nextLine();
                         System.out.println("Give Branch's name:");
+                        System.out.println("Available branches:");
+                        test = master.searchBank(bankName).getBranchesNames();
+                        counter = 1;
+                        for (String i : test) {
+                            System.out.println(counter + ". " + i);
+                            counter++;
+                        }
                         branchName = input.nextLine();
+                        System.out.println("Available Customers:");
                         test = master.searchBank(bankName).searchBranch(branchName).getCustomersNames();
                         counter = 1;
-                        for (String i : test)
+                        for (String i : test) {
                             System.out.println(counter + ". " + i);
+                            counter++;
+                        }
                         printInfo();
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -117,10 +167,31 @@ public class BankTest {
                     String customerName;
                     try {
                         System.out.println("Give Bank's name:");
+                        System.out.println("Available banks:");
+                        test = master.getBanksNames();
+                        counter = 1;
+                        for (String i : test) {
+                            System.out.println(counter + ". " + i);
+                            counter++;
+                        }
                         bankName = input.nextLine();
                         System.out.println("Give Branch's name:");
+                        System.out.println("Available branches:");
+                        test = master.searchBank(bankName).getBranchesNames();
+                        counter = 1;
+                        for (String i : test) {
+                            System.out.println(counter + ". " + i);
+                            counter++;
+                        }
                         branchName = input.nextLine();
                         System.out.println("Give Customer's name:");
+                        System.out.println("Available Customers:");
+                        test = master.searchBank(bankName).searchBranch(branchName).getCustomersNames();
+                        counter = 1;
+                        for (String i : test) {
+                            System.out.println(counter + ". " + i);
+                            counter++;
+                        }
                         customerName = input.nextLine();
                         System.out.println("Give transaction's amount:");
                         double amount = Double.parseDouble(input.nextLine());
@@ -134,10 +205,31 @@ public class BankTest {
                 case 8:
                     try {
                         System.out.println("Give Bank's name:");
+                        System.out.println("Available banks:");
+                        test = master.getBanksNames();
+                        counter = 1;
+                        for (String i : test) {
+                            System.out.println(counter + ". " + i);
+                            counter++;
+                        }
                         bankName = input.nextLine();
                         System.out.println("Give Branch's name:");
+                        System.out.println("Available branches:");
+                        test = master.searchBank(bankName).getBranchesNames();
+                        counter = 1;
+                        for (String i : test) {
+                            System.out.println(counter + ". " + i);
+                            counter++;
+                        }
                         branchName = input.nextLine();
                         System.out.println("Give Customer's name:");
+                        System.out.println("Available Customers:");
+                        test = master.searchBank(bankName).searchBranch(branchName).getCustomersNames();
+                        counter = 1;
+                        for (String i : test) {
+                            System.out.println(counter + ". " + i);
+                            counter++;
+                        }
                         customerName = input.nextLine();
                         System.out.println(master.searchBank(bankName).searchBranch(branchName).searchCustomer(customerName).sum());
                         printInfo();
