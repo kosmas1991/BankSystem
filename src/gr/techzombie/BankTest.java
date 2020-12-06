@@ -13,7 +13,7 @@ public class BankTest {
         while (!stop) {
            int choice = input.nextInt();
            input.nextLine();
-           if (choice<1 && choice>10) {
+           if (choice<1 || choice>10) {
                System.out.println("Give a valid option");
                printInfo();
                choice = input.nextInt();
@@ -22,7 +22,7 @@ public class BankTest {
            ArrayList<String> test;
            switch (choice){
                case 1:
-                   String bankName = null;
+                   String bankName;
                    try {
                        System.out.println("Give bank's name:");
                        bankName = input.nextLine();
@@ -34,7 +34,7 @@ public class BankTest {
                    }
                    break;
                case 2:
-                   int counter = 0;
+                   int counter;
                    try {
                        System.out.println("Available banks:");
                        test= master.getBanksNames();
@@ -48,7 +48,7 @@ public class BankTest {
                    }
                    break;
                case 3:
-                   String branchName = null;
+                   String branchName;
                    try {
                        System.out.println("Give Bank's name:");
                        bankName = input.nextLine();
@@ -108,7 +108,7 @@ public class BankTest {
                    }
                    break;
                case 7:
-                   String customerName = null;
+                   String customerName;
                    try {
                        System.out.println("Give Bank's name:");
                        bankName = input.nextLine();
