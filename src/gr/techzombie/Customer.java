@@ -32,9 +32,9 @@ public class Customer {
 
     }
 
-    public String getTransactions() {
-        return transactions.toString();
-    }
+//    public String getTransactions() {
+//        return transactions.toString();
+//    }
 
     private double returnDoubleTransaction(int i) {
         return transactions.get(i);

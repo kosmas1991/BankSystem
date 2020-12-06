@@ -3,7 +3,7 @@ package gr.techzombie;
 import java.util.ArrayList;
 
 public class Master {
-    private final String name;
+    protected final String name;
     private final ArrayList<Bank> banks;
 
     public ArrayList<String> getBanksNames() {
