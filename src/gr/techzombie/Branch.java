@@ -28,4 +28,10 @@ public class Branch {
                 return i;
         return null;
     }
+    public ArrayList<String> getCustomersNames(){
+        ArrayList<String> onomata = new ArrayList<>();
+        for (Customer i : customers)
+            onomata.add(i.getName());
+        return onomata;
+    }
 }

@@ -24,5 +24,15 @@ public class Bank {
         return null;
     }
 
+    public String getName() {
+        return name;
+    }
+    public ArrayList<String> getBranchesNames(){
+        ArrayList<String> onomata = new ArrayList<>();
+        for (Branch i : branches)
+            onomata.add(i.getName());
+        return onomata;
+    }
+
 }
 

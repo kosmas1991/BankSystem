@@ -28,8 +28,12 @@ public class Customer {
         double summary = 0.0;
         for (int i = 0; i < transactions.size(); i++)
             summary = summary + returnDoubleTransaction(i);
-        return String.format("%.2f", summary);
+        return String.format("%.2f €", summary);
 
+    }
+
+    public String getTransactions() {
+        return transactions.toString();
     }
 
     private double returnDoubleTransaction(int i) {
