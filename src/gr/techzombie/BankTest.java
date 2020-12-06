@@ -7,95 +7,138 @@ public class BankTest {
     private static final Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
 
-//
-//        Bank trap = new Bank("Midas Bank");
-//        trap.newBranch("Kozanis");
-//        trap.searchBranch("Kozanis").newCustomer("Kosmas");
-//        trap.searchBranch("Kozanis").searchCustomer("Kosmas").newTransaction(5.20);
-//        trap.searchBranch("Kozanis").searchCustomer("Kosmas").getTransactions();
-
         Master master = new Master("master");
         boolean stop = false;
         printInfo();
         while (!stop) {
            int choice = input.nextInt();
            input.nextLine();
+           if (choice<1 && choice>10) {
+               System.out.println("Give a valid option");
+               printInfo();
+               choice = input.nextInt();
+               input.nextLine();
+           }
            ArrayList<String> test;
            switch (choice){
                case 1:
-                   System.out.println("Give bank's name:");
-                   String bankName = input.nextLine();
-                   master.addNewBank(bankName);
-                   printInfo();
+                   String bankName = null;
+                   try {
+                       System.out.println("Give bank's name:");
+                       bankName = input.nextLine();
+                       master.addNewBank(bankName);
+                       printInfo();
+                   } catch (Exception e) {
+                       e.printStackTrace();
+                       printInfo();
+                   }
                    break;
                case 2:
-                   System.out.println("Available banks:");
-                   test= master.getBanksNames();
-                   int counter = 1;
-                   for (String i : test)
-                       System.out.println(counter + ". " + i);
-                   printInfo();
+                   int counter = 0;
+                   try {
+                       System.out.println("Available banks:");
+                       test= master.getBanksNames();
+                       counter = 1;
+                       for (String i : test)
+                           System.out.println(counter + ". " + i);
+                       printInfo();
+                   } catch (Exception e) {
+                       e.printStackTrace();
+                       printInfo();
+                   }
                    break;
                case 3:
-                   System.out.println("Give Bank's name:");
-                   bankName = input.nextLine();
-                   System.out.println("Give Branch's name:");
-                   String branchName = input.nextLine();
-                   master.searchBank(bankName).newBranch(branchName);
-                   printInfo();
+                   String branchName = null;
+                   try {
+                       System.out.println("Give Bank's name:");
+                       bankName = input.nextLine();
+                       System.out.println("Give Branch's name:");
+                       branchName = input.nextLine();
+                       master.searchBank(bankName).newBranch(branchName);
+                       printInfo();
+                   } catch (Exception e) {
+                       e.printStackTrace();
+                       printInfo();
+                   }
                    break;
                case 4:
-                   System.out.println("Give Bank's name:");
-                   bankName = input.nextLine();
-                   //test=null;
-                   test=master.searchBank(bankName).getBranchesNames();
-                   counter = 1;
-                   for (String i : test)
-                       System.out.println(counter + ". " + i);
-                   printInfo();
+                   try {
+                       System.out.println("Give Bank's name:");
+                       bankName = input.nextLine();
+                       //test=null;
+                       test=master.searchBank(bankName).getBranchesNames();
+                       counter = 1;
+                       for (String i : test)
+                           System.out.println(counter + ". " + i);
+                       printInfo();
+                   } catch (Exception e) {
+                       e.printStackTrace();
+                       printInfo();
+                   }
                    break;
                case 5:
-                   System.out.println("Give bank's name:");
-                   bankName = input.nextLine();
-                   System.out.println("Give Branch's name:");
-                   branchName = input.nextLine();
-                   System.out.println("Give Customer's name:");
-                   String customer = input.nextLine();
-                   master.searchBank(bankName).searchBranch(branchName).newCustomer(customer);
-                   printInfo();
+                   try {
+                       System.out.println("Give bank's name:");
+                       bankName = input.nextLine();
+                       System.out.println("Give Branch's name:");
+                       branchName = input.nextLine();
+                       System.out.println("Give Customer's name:");
+                       String customer = input.nextLine();
+                       master.searchBank(bankName).searchBranch(branchName).newCustomer(customer);
+                       printInfo();
+                   } catch (Exception e) {
+                       e.printStackTrace();
+                       printInfo();
+                   }
                    break;
                case 6:
-                   System.out.println("Give Bank's name:");
-                   bankName = input.nextLine();
-                   System.out.println("Give Branch's name:");
-                   branchName = input.nextLine();
-                   test=master.searchBank(bankName).searchBranch(branchName).getCustomersNames();
-                   counter = 1;
-                   for (String i : test)
-                       System.out.println(counter + ". " + i);
-                   printInfo();
+                   try {
+                       System.out.println("Give Bank's name:");
+                       bankName = input.nextLine();
+                       System.out.println("Give Branch's name:");
+                       branchName = input.nextLine();
+                       test=master.searchBank(bankName).searchBranch(branchName).getCustomersNames();
+                       counter = 1;
+                       for (String i : test)
+                           System.out.println(counter + ". " + i);
+                       printInfo();
+                   } catch (Exception e) {
+                       e.printStackTrace();
+                       printInfo();
+                   }
                    break;
                case 7:
-                   System.out.println("Give Bank's name:");
-                   bankName = input.nextLine();
-                   System.out.println("Give Branch's name:");
-                   branchName = input.nextLine();
-                   System.out.println("Give Customer's name:");
-                   String customerName = input.nextLine();
-                   System.out.println("Give transaction's amount:");
-                   double amount = Double.parseDouble(input.nextLine());
-                   master.searchBank(bankName).searchBranch(branchName).searchCustomer(customerName).newTransaction(amount);
-                   printInfo();
+                   String customerName = null;
+                   try {
+                       System.out.println("Give Bank's name:");
+                       bankName = input.nextLine();
+                       System.out.println("Give Branch's name:");
+                       branchName = input.nextLine();
+                       System.out.println("Give Customer's name:");
+                       customerName = input.nextLine();
+                       System.out.println("Give transaction's amount:");
+                       double amount = Double.parseDouble(input.nextLine());
+                       master.searchBank(bankName).searchBranch(branchName).searchCustomer(customerName).newTransaction(amount);
+                       printInfo();
+                   } catch (NumberFormatException e) {
+                       e.printStackTrace();
+                       printInfo();
+                   }
                    break;
                case 8:
-                   System.out.println("Give Bank's name:");
-                   bankName = input.nextLine();
-                   System.out.println("Give Branch's name:");
-                   branchName = input.nextLine();
-                   System.out.println("Give Customer's name:");
-                   customerName = input.nextLine();
-                   System.out.println(master.searchBank(bankName).searchBranch(branchName).searchCustomer(customerName).sum());
-                   printInfo();
+                   try {
+                       System.out.println("Give Bank's name:");
+                       bankName = input.nextLine();
+                       System.out.println("Give Branch's name:");
+                       branchName = input.nextLine();
+                       System.out.println("Give Customer's name:");
+                       customerName = input.nextLine();
+                       System.out.println(master.searchBank(bankName).searchBranch(branchName).searchCustomer(customerName).sum());
+                       printInfo();
+                   } catch (Exception e) {
+                       e.printStackTrace();
+                       printInfo();
+                   }
                    break;
                case 9:
                    printInfo();
@@ -108,16 +151,6 @@ public class BankTest {
            }
 
         }
-
-
-
-
-
-//    private static void addNewBank() {
-//        String newBankName = input.nextLine();
-//        Bank bank = new Bank(newBankName);
-//
-//    }
 
     private static void printInfo() {
         System.out.println("Enter your choice:");
