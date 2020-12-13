@@ -1,8 +1,9 @@
 package gr.techzombie;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Branch {
+public class Branch implements Serializable {
     private final String name;
     private final String bankName;
     private final ArrayList<Customer> customers;

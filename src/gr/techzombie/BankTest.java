@@ -1,14 +1,35 @@
 package gr.techzombie;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BankTest {
     private static final Scanner input = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public BankTest() {
+    }
 
-        Master master = new Master("master");
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        Master master;
+        File file = new File("bankSystem.txt");
+        FileOutputStream fos;
+        ObjectOutputStream oos;
+        FileInputStream fis;
+        ObjectInputStream ois;
+        if (file.createNewFile()) {
+            fos = new FileOutputStream(file, true);
+            oos = new ObjectOutputStream(fos);
+            fis = new FileInputStream(file);
+            ois = new ObjectInputStream(fis);
+            master = new Master("master");
+        } else {
+            fos = new FileOutputStream(file, true);
+            oos = new ObjectOutputStream(fos);
+            fis = new FileInputStream(file);
+            ois = new ObjectInputStream(fis);
+            master = (Master) ois.readObject();
+        }
         boolean stop = false;
         int choice = 0;
         printInfo();
@@ -243,6 +264,22 @@ public class BankTest {
                     break;
                 case 10:
                     stop = true;
+
+                    //oos.writeObject(master);
+                    oos.close();
+                    ois.close();
+                    fos.close();
+                    fis.close();
+                    file.delete();
+                    fos = new FileOutputStream(file, true);
+                    oos = new ObjectOutputStream(fos);
+                    fis = new FileInputStream(file);
+                    ois = new ObjectInputStream(fis);
+                    oos.writeObject(master);
+                    oos.close();
+                    ois.close();
+                    fos.close();
+                    fis.close();
                     break;
             }
 
@@ -261,7 +298,7 @@ public class BankTest {
         System.out.println("7. Add a transaction");
         System.out.println("8. Get Customer's summary in €");
         System.out.println("9. Print info");
-        System.out.println("10. exit");
+        System.out.println("10. Exit and save");
     }
 
 }

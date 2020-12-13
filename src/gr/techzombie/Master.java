@@ -1,8 +1,9 @@
 package gr.techzombie;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Master {
+public class Master implements Serializable {
     protected final String name;
     private final ArrayList<Bank> banks;
 
